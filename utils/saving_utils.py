@@ -38,11 +38,10 @@ def save_checkpoint(model, save_path):
         os.makedirs(os.path.dirname(save_path))
     torch.save(model.state_dict(), save_path)
 
-
-def save_checkpoints(opt, itr, net):
+def save_checkpoints(opt, itr, net_name, net):
     save_checkpoint(
         net,
-        os.path.join(opt.save_dir, "checkpoints", "itr_{:08d}_net_G.pth".format(itr)),
+        os.path.join(opt.save_dir, "checkpoints", "{}_itr_{:08d}.pth".format(net_name, itr)),
     )
 
 
