@@ -169,12 +169,12 @@ def training_loop(opt):
             writer.add_scalar("loss", loss, itr)
 
             if itr % opt.save_freq == 0:
-                save_checkpoints(opt, itr, u_net)
+                save_checkpoints(opt, itr, "net_name", net)
 
     print("Training done!")
     if local_rank == 0:
         itr += 1
-        save_checkpoints(opt, itr, u_net)
+        save_checkpoints(opt, itr, "net_name", net)
 
     if opt.do_valid:
         print("validating!")
